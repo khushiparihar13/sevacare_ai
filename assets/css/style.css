@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #0f4c81;
+    --soft-green: #e8f5e9;
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Glassmorphism utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom shadow for floating cards */
+.shadow-soft {
+    box-shadow: 0 10px 40px -10px rgba(15, 76, 129, 0.1);
+}
+
+.dark .shadow-soft {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+.dark ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Gradient text */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(90deg, var(--primary-blue), #2563eb);
+}
+
+.dark .text-gradient {
+    background-image: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+/* Chatbot Widget Styles */
+#chatbot-widget {
+    transition: all 0.3s ease;
+    transform: translateY(150%);
+    opacity: 0;
+}
+#chatbot-widget.active {
+    transform: translateY(0);
+    opacity: 1;
+}
